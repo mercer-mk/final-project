@@ -12,7 +12,7 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '14.x'
+        versionSpec: '18.x'
       displayName: 'Install Node.js'
 
     - script: |
@@ -20,7 +20,7 @@ stages:
       displayName: 'Install Dependencies'
 
     - script: |
-        npm run build
+        node server.js
       displayName: 'Build Project'
 
     - script: |
