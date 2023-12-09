@@ -20,7 +20,7 @@ stages:
       displayName: 'Install Dependencies'
 
     - script: |
-        node server.js
+        npm build
       displayName: 'Build Project'
 
     - script: |
