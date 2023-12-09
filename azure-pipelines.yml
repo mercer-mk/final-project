@@ -1,0 +1,29 @@
+trigger:
+- main
+
+pool:
+  name: 'LAB4-WINDOWS'
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Test'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.x'
+      displayName: 'Install Node.js'
+
+    - script: |
+        npm install
+      displayName: 'Install Dependencies'
+
+    - script: |
+        node server.js
+      displayName: 'Build Project'
+
+    - script: |
+        npm test
+      displayName: 'Run Tests'
+
