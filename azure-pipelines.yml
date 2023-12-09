@@ -27,3 +27,42 @@ stages:
         npm run test
       displayName: 'Run Tests'
 
+- stage: Deliver
+  jobs:
+  - job: DeliverArtifact
+    displayName: 'Deliver Artifact'
+    steps:
+    - script: echo 'Delivering artifact to the release stage.'
+      displayName: 'Deliver Artifact'
+
+- stage: DeployToDev
+  jobs:
+  - job: DeployToDevEnv
+    displayName: 'Deploy to Dev Environment'
+    steps:
+    - script: echo 'Deploying artifact to Dev environment.'
+      displayName: 'Deploy to Dev Environment'
+
+- stage: DeployToQAT
+  jobs:
+  - job: DeployToQATEnv
+    displayName: 'Deploy to QAT Environment'
+    steps:
+    - script: echo 'Deploying artifact to QAT environment.'
+      displayName: 'Deploy to QAT Environment'
+
+- stage: DeployToStaging
+  jobs:
+  - job: DeployToStagingEnv
+    displayName: 'Deploy to Staging Environment'
+    steps:
+    - script: echo 'Deploying artifact to Staging environment.'
+      displayName: 'Deploy to Staging Environment'
+
+- stage: DeployToProduction
+  jobs:
+  - job: DeployToProductionEnv
+    displayName: 'Deploy to Production Environment'
+    steps:
+    - script: echo 'Deploying artifact to Production environment.'
+      displayName: 'Deploy to Production Environment'
