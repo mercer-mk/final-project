@@ -27,6 +27,7 @@ stages:
         npm run test
       displayName: 'Run Tests'
 
+
 - stage: Deliver
   jobs:
   - job: DeliverArtifact
@@ -34,6 +35,9 @@ stages:
     steps:
     - script: echo 'Delivering artifact to the release stage.'
       displayName: 'Deliver Artifact'
+    - publish: '$(System.DefaultWorkingDirectory)'
+      artifact: drop
+      displayName: 'Publish Artifact'
 
 - stage: DeployToDev
   jobs:
