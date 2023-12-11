@@ -14,6 +14,7 @@ mongoose.connect("mongodb://localhost/task_management_system", {
 
 // Configure Passport
 require("./config/passport")(passport);
+console.log("pushed for demo")
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
